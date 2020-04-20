@@ -1,0 +1,42 @@
+[
+  {
+	"id": 1,
+	"content": "add ability see all todo",
+	"isDone": true
+  },
+  {
+	"id": 2,
+	"content": "add ability to add todo",
+	"isDone": true
+  },
+  {
+	"id": 3,
+	"content": "add ability to remove todo",
+	"isDone": true
+  },
+  {
+	"id": 4,
+	"content": "add ability to edit todo",
+	"isDone": false
+  },
+  {
+	"id": 5,
+	"content": "add ability to mark todo as done",
+	"isDone": false
+  },
+  {
+	"id": 6,
+	"content": "add ability to show only done / undone todos",
+	"isDone": false
+  },
+  {
+	"id": 7,
+	"content": "add todo without callback",
+	"isDone": true
+  },
+  {
+	"content": "grant todo id for each todo item",
+	"isDone": true,
+	"id": 8
+  }
+]
