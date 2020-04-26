@@ -17,12 +17,12 @@
   {
 	"id": 4,
 	"content": "add ability to edit todo",
-	"isDone": false
+	"isDone": true
   },
   {
 	"id": 5,
 	"content": "add ability to mark todo as done",
-	"isDone": false
+	"isDone": true
   },
   {
 	"id": 6,

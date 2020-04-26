@@ -56,10 +56,41 @@ function removeTodo(todoId, callback = noop) {
 	});
 }
 
+function editTodo(todoId, todo, callback = noop) {
+	getTodos((err, todos) => {
+		if (err) {
+			callback(err);
+			return;
+		}
+		const todoToEdit = todos.find(todo => todo.id === todoId);
+
+		if (!todoToEdit) {
+			callback(new Error('there is no todo with ID: ' + todoId));
+			return;
+		}
+
+		Object.assign(todoToEdit, todo);
+
+		saveTodos(todos, (err) => {
+			if (err) {
+				callback(err);
+				return;
+			}
+			callback(null, todoToEdit);
+		});
+	});
+}
+
+function toggleTodoDone(todoId, isDone, callback) {
+	editTodo(todoId, {isDone}, callback);
+}
+
 module.exports = {
 	getTodos,
 	addTodo,
-	removeTodo
+	removeTodo,
+	editTodo,
+	toggleTodoDone
 }
 
 
