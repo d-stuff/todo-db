@@ -26,7 +26,7 @@
   },
   {
 	"id": 6,
-	"content": "add ability to show only done / undone todos",
+	"content": "ability to filter todos",
 	"isDone": false
   },
   {

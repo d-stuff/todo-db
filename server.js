@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const {getTodos, addTodo, removeTodo} = require('./db');
+const {getTodos, addTodo, removeTodo, editTodo} = require('./db');
 
 const app = express();
 
@@ -42,6 +42,17 @@ app.delete('/api/todos/:todoId', function (req, res) {
 			return;
 		}
 		res.status(200).json({success: true}).end();
+	})
+});
+
+app.put('/api/todos/:todoId', function (req, res) {
+	const todoId = Number(req.params.todoId);
+	editTodo(todoId, req.body, function (err, todo) {
+		if (err) {
+			res.status(500).json({message: 'internal error while trying to update todo'}).end();
+			return;
+		}
+		res.status(200).json(todo).end();
 	})
 });
 
