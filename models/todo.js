@@ -8,6 +8,11 @@ const TodoSchema = new mongoose.Schema({
 	isDone: {
 		type: Boolean,
 		default: () => false
+	},
+	user: {
+		type: mongoose.Types.ObjectId,
+		ref: 'User',
+		index: true
 	}
 });
 const Todo = mongoose.model('Todo', TodoSchema);

@@ -1,8 +1,7 @@
-const mongoose = require('mongoose')
 const Todo = require('../models/todo');
 
-function getTodos() {
-	return Todo.find({})
+function getTodos(userId) {
+	return Todo.find({user: userId})
 }
 
 function addTodo(todo) {
@@ -10,12 +9,12 @@ function addTodo(todo) {
 	return todo.save();
 }
 
-function removeTodo(todoId) {
-	return Todo.findByIdAndRemove(todoId);
+function removeTodo(todoId, userId) {
+	return Todo.findOneAndRemove({_id: todoId, user: userId});
 }
 
-function editTodo(todoId, newData = {}) {
-	return Todo.findById(todoId).then(todo => {
+function editTodo(todoId, userId, newData = {}) {
+	return Todo.findOne({_id: todoId, user: userId}).then(todo => {
 		Object.assign(todo, newData);
 		return todo.save();
 	})
