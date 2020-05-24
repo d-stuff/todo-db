@@ -14,6 +14,7 @@ const UserSchema = new mongoose.Schema({
 	lastName: String,
 	bio: String,
 	birthDate: String,
+	refreshTokenIdentifier: String,
 	created: {
 		type: Date,
 		default: Date.now
