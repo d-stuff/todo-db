@@ -1,10 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const {port} = require('./config');
 const connect = require('./db');
 const app = express();
 
 app.use(bodyParser.json());
+app.use(morgan('combined'));
 
 require('./routes')(app);
 

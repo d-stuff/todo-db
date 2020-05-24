@@ -3,7 +3,7 @@ const {tokenSecret} = require('../config');
 const {getTodos, addTodo, removeTodo, editTodo} = require('../services/todos-service')
 
 function verifyUser(req, res, next) {
-	if(req.headers.authorization) {
+	if (req.headers.authorization) {
 		// Bearer s8d7fgsduyifgbyudsgdsufydsf
 		const token = req.headers.authorization.split(' ')[1]
 
